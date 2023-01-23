@@ -1,0 +1,11 @@
+.dialog-container {
+  position: relative;
+}
+
+.mat-progress-bar {
+  position: absolute;
+  left: -28px;
+  right: 0px;
+  top: -25px;
+  width: calc(100% + 56px);
+}
