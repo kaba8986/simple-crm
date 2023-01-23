@@ -33,4 +33,12 @@ export class UserDetailComponent implements OnInit {
       console.log(this.currUser);
     })
   }
+
+  editMenu() {
+
+  }
+
+  editUserDetails() {
+    
+  }
 }
