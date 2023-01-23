@@ -17,7 +17,10 @@ export class UserComponent implements OnInit {
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-    this.firestore.collection('users').valueChanges({idField: 'customIdName'}).subscribe((changes:any) => {
+    this.firestore
+    .collection('users')
+    .valueChanges({idField: 'customIdName'})
+    .subscribe((changes:any) => {
       console.log('Recieved changes from database: ', changes);
       this.allUsers = changes;
     })
