@@ -23,6 +23,10 @@ mat-toolbar {
   min-height: 56px;
   display: flex;
   align-items: center;
+
+  img {
+    height: 70px;
+  }
 }
 
 .menu-items {
