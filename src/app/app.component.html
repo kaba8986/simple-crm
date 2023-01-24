@@ -16,8 +16,27 @@
   <div class="example-sidenav-content">
     <mat-toolbar color="primary">
       <mat-toolbar-row>
-        <mat-icon (click)="drawer.toggle()">menu</mat-icon>
-        <span>Simple CRM</span>
+        <div class="title-box">
+          <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+          <span>Simple CRM</span>
+        </div>
+        <div class="setting-box">
+          <div class="login-container">
+            <h2>Hello Name!</h2>
+            <mat-icon [matMenuTriggerFor]="settingsMenu">settings</mat-icon>
+            <mat-menu #settingsMenu="matMenu">
+              <button mat-menu-item (click)="login()">Login</button>
+              <button mat-menu-item (click)="logout()">Logout</button>
+            </mat-menu>
+          </div>
+          <div class="login-container">
+            <mat-icon [matMenuTriggerFor]="settingsMenu">settings</mat-icon>
+            <mat-menu #settingsMenu="matMenu">
+              <button mat-menu-item (click)="login()">Login</button>
+              <button mat-menu-item (click)="logout()">Logout</button>
+            </mat-menu>
+          </div>
+        </div>
       </mat-toolbar-row>
     </mat-toolbar>
 
