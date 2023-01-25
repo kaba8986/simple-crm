@@ -36,8 +36,6 @@ export class DialogEditPicComponent implements OnInit {
     .then(() => {
       this.dialogRef.close();
     })
-    console.log(this.user);
-
   }
 
 }

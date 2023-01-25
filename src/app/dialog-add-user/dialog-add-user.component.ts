@@ -17,6 +17,7 @@ export class DialogAddUserComponent implements OnInit {
   constructor(private firestore: AngularFirestore, public dialogRef: MatDialogRef<DialogAddUserComponent>) { }
 
   ngOnInit(): void {
+
   }
   saveUser() {
     this.loading = true;
@@ -25,6 +26,7 @@ export class DialogAddUserComponent implements OnInit {
       this.dialogRef.close();
     });
     this.loading = false;
+    console.log(this.user);
   }
 
 }

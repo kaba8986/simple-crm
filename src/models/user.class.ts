@@ -31,6 +31,7 @@ export class User {
 
   public toJSON() {
     return {
+      img: this.img,
       firstName: this.firstName,
       lastName: this.lastName,
       department: this.department,

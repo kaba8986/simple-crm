@@ -40,6 +40,7 @@ export class UserDetailComponent implements OnInit {
     .subscribe((user: any) => {
       this.currUser = new User(user);
     })
+
   }
 
   editMenu() {
