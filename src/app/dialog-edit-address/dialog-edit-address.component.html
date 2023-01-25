@@ -22,6 +22,38 @@
         <!-- <mat-hint>Please enter city.</mat-hint> -->
       </mat-form-field>
     </div>
+
+    <div>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input [disabled]="loading" [(ngModel)]="user.phone" matInput placeholder="Phone">
+        <!-- <mat-hint>Please enter street.</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input [disabled]="loading" [(ngModel)]="user.mobile" matInput placeholder="Mobile">
+        <!-- <mat-hint>Please enter street.</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Skype-ID</mat-label>
+        <input [disabled]="loading" [(ngModel)]="user.skype" matInput placeholder="Skype-ID">
+        <!-- <mat-hint>Please enter street.</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Twitter</mat-label>
+        <input [disabled]="loading" [(ngModel)]="user.twitter" matInput placeholder="Twitter">
+        <!-- <mat-hint>Please enter street.</mat-hint> -->
+      </mat-form-field>
+    </div>
   
     <div mat-dialog-actions>
       <button (click)="dialogRef.close();" [disabled]="loading"  mat-button>Cancel</button>

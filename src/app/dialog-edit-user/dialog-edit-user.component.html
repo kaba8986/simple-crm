@@ -14,6 +14,15 @@
         <!-- <mat-hint>Please enter last name.</mat-hint> -->
       </mat-form-field>
     </div>
+
+    <div>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Department</mat-label>
+        <input type="text" [disabled]="loading" [(ngModel)]="user.department" matInput placeholder="Department">
+        <!-- <mat-hint>Please enter street.</mat-hint> -->
+      </mat-form-field>
+    </div>
+
     <div>
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Email</mat-label>
@@ -23,14 +32,13 @@
     </div>
 
     <div>
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Birth date</mat-label>
-        <input [disabled]="loading" [(ngModel)]="birthDate" matInput placeholder="Placeholder"
-          [matDatepicker]="picker1">
-        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
-        <!-- <mat-hint>Please enter birth date.</mat-hint> -->
+      <mat-form-field class="example-full-width birthday-field" appearance="outline">
+        <mat-label>Birthday</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="birthDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+      <button id="datepicker-btn" mat-icon-button (click)="picker.open()"> <mat-icon>calendar_month</mat-icon></button>
     </div>
 
     <div mat-dialog-actions>

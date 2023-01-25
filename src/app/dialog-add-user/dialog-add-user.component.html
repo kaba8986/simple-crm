@@ -31,16 +31,6 @@
       </div>
 
       <div>
-        <mat-form-field class="example-full-width birthday-field" appearance="outline">
-          <mat-label>Birthday</mat-label>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="birthDate">
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <button id="datepicker-btn" mat-icon-button (click)="picker.open()"> <mat-icon>calendar_month</mat-icon></button>
-
-      </div>
-
-      <div>
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Street + House No.</mat-label>
           <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="street">
@@ -59,6 +49,17 @@
           <!-- <mat-hint>Please enter city.</mat-hint> -->
         </mat-form-field>
       </div>
+
+      <div>
+        <mat-form-field class="example-full-width birthday-field" appearance="outline">
+          <mat-label>Birthday</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="birthDate">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <button id="datepicker-btn" mat-icon-button (click)="picker.open()"> <mat-icon>calendar_month</mat-icon></button>
+      </div>
+
     </div>
 
     <!------------ RIGHT SIDE ---------------------->
