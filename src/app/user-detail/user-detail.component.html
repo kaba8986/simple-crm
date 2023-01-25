@@ -4,6 +4,7 @@
   </button>
   <mat-menu #userMenu="matMenu">
     <button mat-menu-item (click)="editUserDetails()">Edit</button>
+    <button mat-menu-item (click)="deleteUser()" routerLink="/user">Delete</button>
   </mat-menu>
   <img src="assets/img/profil.png" alt="">
   <div class="user-details">
@@ -19,7 +20,7 @@
   <mat-menu #addressMenu="matMenu">
     <button mat-menu-item (click)="editMenu()">Edit</button>
   </mat-menu>
-  <mat-card-title>Address</mat-card-title>
+  <mat-card-title>Informations</mat-card-title>
 
   <mat-card-content>
     {{ currUser.street }} <br>
