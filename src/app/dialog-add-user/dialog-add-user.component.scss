@@ -12,4 +12,30 @@
 
 .mat-dialog-content {
   overflow: unset;
+  display:flex;
+  gap: 25px;
+  max-width: 800px;
 }
+
+.left-side,
+.right-side {
+  width: 50%;
+}
+
+.birthday-field {
+  width: 80%;
+}
+
+#datepicker-btn {
+  margin-left: 16px;
+  color: #3F51B5;
+}
+
+.location {
+  display: flex;
+}
+
+.location-zip {
+  width: 30%;
+}
+
