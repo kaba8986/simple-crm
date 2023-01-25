@@ -1,4 +1,5 @@
 export class User {
+  img: string;
   firstName: string;
   lastName: string;
   department: string;
@@ -13,6 +14,7 @@ export class User {
   twitter: string;
 
   constructor(obj?: any) {
+    this.img = 'profile0';
     this.firstName = obj ? obj.firstName : "";
     this.lastName = obj ? obj.lastName : "";
     this.department = obj ? obj.department : "";

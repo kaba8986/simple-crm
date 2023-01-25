@@ -1,0 +1,5 @@
+<div class="container">
+    <div class="img-box">
+        <img *ngFor="let img of images" src="assets/img/avatars/{{img}}.png" alt="{{img}}" (click)="setPic(img)">
+    </div>
+</div>

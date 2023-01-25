@@ -5,6 +5,7 @@ import { User } from 'src/models/user.class';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { DialogEditPicComponent } from '../dialog-edit-pic/dialog-edit-pic.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -38,7 +39,6 @@ export class UserDetailComponent implements OnInit {
     .valueChanges()
     .subscribe((user: any) => {
       this.currUser = new User(user);
-      console.log(this.currUser);
     })
   }
 
@@ -50,6 +50,12 @@ export class UserDetailComponent implements OnInit {
 
   editUserDetails() {
     const dialog = this.dialog.open(DialogEditUserComponent);
+    dialog.componentInstance.user = new User(this.currUser.toJSON())
+    dialog.componentInstance.userId = this.userId;
+  }
+
+  editPic() {
+    const dialog = this.dialog.open(DialogEditPicComponent);
     dialog.componentInstance.user = new User(this.currUser.toJSON())
     dialog.componentInstance.userId = this.userId;
   }

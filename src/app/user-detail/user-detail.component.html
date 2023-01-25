@@ -6,7 +6,10 @@
     <button mat-menu-item (click)="editUserDetails()">Edit</button>
     <button mat-menu-item (click)="deleteUser()" routerLink="/user">Delete</button>
   </mat-menu>
-  <img src="assets/img/profil.png" alt="">
+  <div class="img-box">
+    <img src="assets/img/avatars/{{currUser.img}}.png" alt="">
+    <mat-icon (click)="editPic()">edit</mat-icon>
+  </div>
   <div class="user-details">
     <h2>{{ currUser.firstName + " " +  currUser.lastName }}</h2>
     <p>{{ currUser.email }}</p>

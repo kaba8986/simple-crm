@@ -1,0 +1,22 @@
+
+.container {
+    padding: 16px;
+}
+
+.img-box {
+    display: flex;
+    gap: 32px;
+
+    img {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        cursor: pointer;
+        transition: 0.125s;
+
+        &:hover {
+            opacity: 0.8;
+            transition: 0.125s;
+        }
+    }
+}

@@ -22,6 +22,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { DialogEditPicComponent } from './dialog-edit-pic/dialog-edit-pic.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TasksComponent } from './tasks/tasks.component';
     UserDetailComponent,
     DialogEditAddressComponent,
     DialogEditUserComponent,
-    TasksComponent
+    TasksComponent,
+    DialogEditPicComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
