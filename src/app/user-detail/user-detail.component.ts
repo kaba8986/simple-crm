@@ -7,6 +7,7 @@ import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-a
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 import { DialogEditPicComponent } from '../dialog-edit-pic/dialog-edit-pic.component';
 import { Location } from '@angular/common';
+import { DialogDeleteWarningComponent } from '../dialog-delete-warning/dialog-delete-warning.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -65,10 +66,8 @@ export class UserDetailComponent implements OnInit {
   }
 
   deleteUser() {
-    this.firestore
-    .collection('users')
-    .doc(this.userId)
-    .delete()
+    const dialog = this.dialog.open(DialogDeleteWarningComponent);
+    dialog.componentInstance.userId = this.userId;
   }
 
   pageBack() {

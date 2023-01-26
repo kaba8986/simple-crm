@@ -1,0 +1,8 @@
+<h2>Delete Entry</h2>
+<p>Do you really want to delete this entry? <br>
+  This cannot be undone.
+</p>
+<div class="button-row">
+  <button mat-raised-button (click)="this.dialogRef.close()">Cancel</button>
+  <button mat-raised-button routerLink="/user" (click)="deleteEntry()" color="warn">Delete</button>
+</div>
