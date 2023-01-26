@@ -3,11 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Contact } from 'src/models/contact.class';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogEditAddressComponent } from '../../dialog-edit-address/dialog-edit-address.component';
-import { DialogEditUserComponent } from '../../dialog-edit-user/dialog-edit-user.component';
-import { DialogEditPicComponent } from '../../dialog-edit-pic/dialog-edit-pic.component';
+import { DialogEditAddressComponent } from '../../components/dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from '../../components/dialog-edit-user/dialog-edit-user.component';
+import { DialogEditPicComponent } from '../../components/dialog-edit-pic/dialog-edit-pic.component';
 import { Location } from '@angular/common';
-import { DialogDeleteWarningComponent } from '../../dialog-delete-warning/dialog-delete-warning.component';
+import { DialogDeleteWarningComponent } from '../../components/dialog-delete-warning/dialog-delete-warning.component';
 
 @Component({
   selector: 'app-contact-detail',

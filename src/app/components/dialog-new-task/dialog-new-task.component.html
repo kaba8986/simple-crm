@@ -1,0 +1,41 @@
+<div class="dialog-container">
+    <h1 mat-dialog-title>Add New Task</h1>
+    <div mat-dialog-content>
+        <div class="left-side">
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Titel</mat-label>
+                    <input [disabled]="loading" [(ngModel)]="task.title" matInput placeholder="Titel">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Text</mat-label>
+                    <textarea [disabled]="loading" [(ngModel)]="task.text" matInput placeholder="Text"></textarea>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Category</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let cat of categories" [value]="cat">
+                        {{cat}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Assigned to</mat-label>
+                <mat-select [formControl]="contacts" multiple>
+                  <mat-option *ngFor="let contact of contactList"  [value]="contact">{{contact.lastName + ', ' + contact.firstName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>Close</button>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Contact } from 'src/models/contact.class';
-import { DialogAddContactComponent } from '../../dialog-add-contact/dialog-add-contact.component';
+import { DialogAddContactComponent } from '../../components/dialog-add-contact/dialog-add-contact.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
