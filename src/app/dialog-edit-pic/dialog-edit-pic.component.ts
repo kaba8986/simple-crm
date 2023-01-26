@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/models/user.class';
+import { Contact } from 'src/models/contact.class';
 
 @Component({
   selector: 'app-dialog-edit-pic',
@@ -16,8 +16,8 @@ export class DialogEditPicComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogEditPicComponent>
   ) { }
 
-  userId: string;
-  user: User;
+  contactId: string;
+  contact: Contact;
   images = ['profile0', 'profile1'];
 
   ngOnInit(): void {
@@ -27,12 +27,12 @@ export class DialogEditPicComponent implements OnInit {
 
 
   setPic(img: string) {
-    console.log(this.user);
-    this.user.img = img;
+    console.log(this.contact);
+    this.contact.img = img;
     this.firestore
-    .collection('users')
-    .doc(this.userId)
-    .update(this.user.toJSON())
+    .collection('contacts')
+    .doc(this.contactId)
+    .update(this.contact.toJSON())
     .then(() => {
       this.dialogRef.close();
     })

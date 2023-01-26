@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { User } from 'src/models/user.class';
+import { Contact } from 'src/models/contact.class';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
@@ -10,11 +10,11 @@ import { Location } from '@angular/common';
 import { DialogDeleteWarningComponent } from '../dialog-delete-warning/dialog-delete-warning.component';
 
 @Component({
-  selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.scss']
+  selector: 'app-contact-detail',
+  templateUrl: './contact-detail.component.html',
+  styleUrls: ['./contact-detail.component.scss']
 })
-export class UserDetailComponent implements OnInit {
+export class ContactDetailComponent implements OnInit {
 
   constructor(
     private router: Router, 
@@ -24,24 +24,24 @@ export class UserDetailComponent implements OnInit {
     private _location: Location
     ) { }
 
-  userId: string;
-  currUser: User = new User();
+  contactId: string;
+  currContact: Contact = new Contact ();
 
   ngOnInit(): void {
     this.route.paramMap
     .subscribe( paramMap => {
-      this.userId = paramMap.get('id');
-      this.getUser();
+      this.contactId = paramMap.get('id');
+      this.getContact();
     })
   }
 
-  getUser() {
+  getContact() {
     this.firestore
-    .collection('users')
-    .doc(this.userId)
+    .collection('contacts')
+    .doc(this.contactId)
     .valueChanges()
-    .subscribe((user: any) => {
-      this.currUser = new User(user);
+    .subscribe((contact: any) => {
+      this.currContact = new Contact(contact);
     })
   }
 
@@ -49,25 +49,25 @@ export class UserDetailComponent implements OnInit {
 
   editMenu() {
     const dialog = this.dialog.open(DialogEditAddressComponent);
-    dialog.componentInstance.user = new User(this.currUser.toJSON()); // neuer Nutzer als Kopie des aktuellen wird erstellt um Nutzeränderungen nicht schon beim Tippen (ngModel) zu erhalten
-    dialog.componentInstance.userId = this.userId;
+    dialog.componentInstance.contact = new Contact(this.currContact.toJSON()); // neuer Nutzer als Kopie des aktuellen wird erstellt um Nutzeränderungen nicht schon beim Tippen (ngModel) zu erhalten
+    dialog.componentInstance.contactId = this.contactId;
   }
 
   editUserDetails() {
     const dialog = this.dialog.open(DialogEditUserComponent);
-    dialog.componentInstance.user = new User(this.currUser.toJSON())
-    dialog.componentInstance.userId = this.userId;
+    dialog.componentInstance.contact = new Contact(this.currContact.toJSON())
+    dialog.componentInstance.contactId = this.contactId;
   }
 
   editPic() {
     const dialog = this.dialog.open(DialogEditPicComponent);
-    dialog.componentInstance.user = new User(this.currUser.toJSON())
-    dialog.componentInstance.userId = this.userId;
+    dialog.componentInstance.contact = new Contact(this.currContact.toJSON())
+    dialog.componentInstance.contactId = this.contactId;
   }
 
   deleteUser() {
     const dialog = this.dialog.open(DialogDeleteWarningComponent);
-    dialog.componentInstance.userId = this.userId;
+    dialog.componentInstance.contactId = this.contactId;
   }
 
   pageBack() {

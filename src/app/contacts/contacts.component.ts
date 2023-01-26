@@ -1,37 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import { User } from 'src/models/user.class';
-import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+import { Contact } from 'src/models/contact.class';
+import { DialogAddContactComponent } from '../dialog-add-contact/dialog-add-contact.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  selector: 'app-contacts',
+  templateUrl: './contacts.component.html',
+  styleUrls: ['./contacts.component.scss']
 })
-export class UserComponent implements OnInit {
+export class ContactsComponent implements OnInit {
 
-  user = new User();   
-  allUsers = [];
+  contact = new Contact();   
+  allContacts = [];
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
     this.firestore
-    .collection('users')
+    .collection('contacts')
     .valueChanges({idField: 'customIdName'})
     .subscribe((changes:any) => {
-      this.allUsers = changes;
+      this.allContacts = changes;
     })
     //Sort User-Array alphabetically by lastname
-    this.allUsers.sort((a:any, b:any) => {
+    this.allContacts.sort((a:any, b:any) => {
       return this.compareStrings(a.lastName, b.lastName)
     })
     
   }
 
   openDialog() {
-    this.dialog.open(DialogAddUserComponent);
+    this.dialog.open(DialogAddContactComponent);
   }
 
   compareStrings(a, b) {

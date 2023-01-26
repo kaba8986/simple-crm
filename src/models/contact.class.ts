@@ -1,4 +1,4 @@
-export class User {
+export class Contact {
   img: string;
   firstName: string;
   lastName: string;

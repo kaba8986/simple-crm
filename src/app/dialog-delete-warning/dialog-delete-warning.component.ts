@@ -14,15 +14,15 @@ export class DialogDeleteWarningComponent implements OnInit {
     private firestore: AngularFirestore
     ) { }
 
-    userId: string;
+    contactId: string;
 
   ngOnInit(): void {
   }
 
   deleteEntry() {
     this.firestore
-    .collection('users')
-    .doc(this.userId)
+    .collection('contacts')
+    .doc(this.contactId)
     .delete()
     .then(() => this.dialogRef.close())
   }

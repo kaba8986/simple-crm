@@ -11,14 +11,14 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 
 import { AppComponent } from './app.component';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { ContactsComponent } from './contacts/contacts.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
-import { UserComponent } from './user/user.component';
+import { DialogAddContactComponent } from './dialog-add-contact/dialog-add-contact.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { UserDetailComponent } from './user-detail/user-detail.component';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -28,10 +28,10 @@ import { DialogDeleteWarningComponent } from './dialog-delete-warning/dialog-del
 @NgModule({
   declarations: [
     AppComponent,
+    ContactDetailComponent,
+    ContactsComponent,
     DashboardComponent,
-    UserComponent,
-    DialogAddUserComponent,
-    UserDetailComponent,
+    DialogAddContactComponent,
     DialogEditAddressComponent,
     DialogEditUserComponent,
     TasksComponent,

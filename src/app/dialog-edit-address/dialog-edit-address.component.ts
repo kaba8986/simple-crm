@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
-import { User } from 'src/models/user.class';
+import { Contact } from 'src/models/contact.class';
 
 @Component({
   selector: 'app-dialog-edit-address',
@@ -15,18 +15,18 @@ export class DialogEditAddressComponent implements OnInit {
     private firestore: AngularFirestore
     ) { }
 
-  user: User;
-  userId: string;
+  contact: Contact;
+  contactId: string;
   loading = false;
 
   ngOnInit(): void {
   }
 
-  saveUser() {
+  saveContact() {
     this.firestore
-    .collection('users')
-    .doc(this.userId)
-    .update(this.user.toJSON())
+    .collection('contacts')
+    .doc(this.contactId)
+    .update(this.contact.toJSON())
     .then(() => {
       this.loading = false;
       this.dialogRef.close();
