@@ -9,6 +9,8 @@ export class TasksComponent implements OnInit {
 
   constructor() { }
 
+  colHeads = ['To do', 'In Progress', 'Awaiting Feedback', 'Done'];
+
   ngOnInit(): void {
   }
 

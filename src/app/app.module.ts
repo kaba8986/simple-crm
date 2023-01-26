@@ -11,9 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 
 import { AppComponent } from './app.component';
-import { ContactDetailComponent } from './contact-detail/contact-detail.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContactDetailComponent } from './pages/contact-detail/contact-detail.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DialogAddContactComponent } from './dialog-add-contact/dialog-add-contact.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -21,7 +21,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
-import { TasksComponent } from './tasks/tasks.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
 import { DialogEditPicComponent } from './dialog-edit-pic/dialog-edit-pic.component';
 import { DialogDeleteWarningComponent } from './dialog-delete-warning/dialog-delete-warning.component';
 

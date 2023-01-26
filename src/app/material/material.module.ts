@@ -6,6 +6,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker'; 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
@@ -16,7 +17,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 const materialModules = [
-   MatButtonModule, MatCardModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatNativeDateModule, MatProgressBarModule, MatSidenavModule, MatMenuModule, MatToolbarModule, MatTooltipModule 
+   MatButtonModule, MatCardModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatNativeDateModule, MatProgressBarModule, MatSidenavModule, MatMenuModule, MatToolbarModule, MatTooltipModule 
   ];
 
 @NgModule({

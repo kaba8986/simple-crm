@@ -1,0 +1,12 @@
+<div class="task-container">
+  <mat-grid-list cols="4">
+    <mat-grid-tile *ngFor="let col of colHeads">
+      <mat-grid-tile-header>
+        <span>{{col}}</span>
+        <button mat-icon-button>
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-grid-tile-header>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

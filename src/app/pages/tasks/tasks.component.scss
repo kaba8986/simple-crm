@@ -1,0 +1,14 @@
+mat-grid-tile-header {
+  display: flex;
+  justify-content: space-between;
+
+  mat-icon {
+
+  }
+}
+
+mat-grid-tile {
+  background: transparent;
+  border: 1px solid grey;
+  min-height: calc(100vh - 88px);
+}
