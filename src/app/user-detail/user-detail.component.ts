@@ -40,8 +40,9 @@ export class UserDetailComponent implements OnInit {
     .subscribe((user: any) => {
       this.currUser = new User(user);
     })
-
   }
+
+
 
   editMenu() {
     const dialog = this.dialog.open(DialogEditAddressComponent);

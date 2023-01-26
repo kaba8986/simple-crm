@@ -47,6 +47,22 @@
   }
 }
 
+.b-day-line {
+  display: flex;
+  height: 30px;
+  align-items: center;
+
+  mat-icon {
+    font-size: 20px;
+  }
+
+  p {
+    line-height: 30px;
+    margin: unset;
+    padding-left: 8px;
+  }
+}
+
 .edit-user-btn {
   position: absolute;
   top: 8px;

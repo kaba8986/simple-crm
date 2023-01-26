@@ -24,6 +24,7 @@ export class DialogEditUserComponent implements OnInit {
   }
 
   saveUser() {
+    this.user.birthDate = this.birthDate.toLocaleDateString();
     this.firestore
     .collection('users')
     .doc(this.userId)

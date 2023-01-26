@@ -12,7 +12,10 @@
   </div>
   <div class="user-details">
     <h2>{{ currUser.firstName + " " +  currUser.lastName }}</h2>
-    <p>{{ currUser.email }}</p>
+    <p>{{ currUser.email }}</p> 
+    <div class="b-day-line">
+      <mat-icon>cake</mat-icon><p>{{ currUser.birthDate }}</p>
+    </div>
   </div>
 </mat-card>
 
@@ -27,6 +30,15 @@
 
   <mat-card-content>
     {{ currUser.street }} <br>
-    {{ currUser.zipCode  + " " +  currUser.city }}
+    {{ currUser.zipCode  + " " +  currUser.city }} <br><br>
+
+    Phone: {{ currUser.phone }} <br>
+    Mobile:  {{ currUser.mobile }} <br><br>
+
+    Skype-ID: {{ currUser.skype }} <br>
+    Twitter: {{ currUser.twitter }} <br><br>
+
+    Notes: Notizen <br>
+    
   </mat-card-content>
 </mat-card>

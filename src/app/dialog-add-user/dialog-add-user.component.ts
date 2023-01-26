@@ -17,16 +17,18 @@ export class DialogAddUserComponent implements OnInit {
   constructor(private firestore: AngularFirestore, public dialogRef: MatDialogRef<DialogAddUserComponent>) { }
 
   ngOnInit(): void {
+    let date = new Date();
 
   }
+
   saveUser() {
     this.loading = true;
-    this.user.birthDate = this.birthDate.getTime();
+    this.user.birthDate = this.birthDate.toLocaleDateString();
+    // this.user.birthDate = this.birthDate.getTime();
     this.firestore.collection('users').add(this.user.toJSON()).then((result: any) => {
       this.dialogRef.close();
     });
     this.loading = false;
-    console.log(this.user);
   }
 
 }
