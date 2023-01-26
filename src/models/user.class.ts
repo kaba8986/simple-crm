@@ -2,9 +2,9 @@ export class User {
   img: string;
   firstName: string;
   lastName: string;
-  department: string;
   email: string;
-  birthDate: string;
+  birthDate: Date;
+  birthDateString: string;
   street: string;
   zipCode: number;
   city: string;
@@ -17,9 +17,9 @@ export class User {
     this.img = 'profile0';
     this.firstName = obj ? obj.firstName : "";
     this.lastName = obj ? obj.lastName : "";
-    this.department = obj ? obj.department : "";
     this.email = obj ? obj.email : "";
-    this.birthDate = obj ? obj.birthDate : "";
+    this.birthDate = obj ? obj.birthDate : new Date();
+    this.birthDateString = obj ? obj.birthDateString : "";
     this.street = obj ? obj.street : "";
     this.zipCode = obj ? obj.zipCode : "";
     this.city = obj ? obj.city : "";
@@ -34,9 +34,9 @@ export class User {
       img: this.img,
       firstName: this.firstName,
       lastName: this.lastName,
-      department: this.department,
       email: this.email,
       birthDate: this.birthDate,
+      birthDateString: this.birthDateString,
       street: this.street,
       zipCode: this.zipCode,
       city: this.city,

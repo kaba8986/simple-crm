@@ -1,5 +1,8 @@
 <mat-card class="user-detail-header">
-  <button mat-icon-button class="edit-user-btn"  [matMenuTriggerFor]="userMenu">
+  <button mat-icon-button class="page-back" (click)="pageBack()" >
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <button mat-icon-button class="edit-user-btn" [matMenuTriggerFor]="userMenu">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #userMenu="matMenu">
@@ -14,7 +17,7 @@
     <h2>{{ currUser.firstName + " " +  currUser.lastName }}</h2>
     <p>{{ currUser.email }}</p> 
     <div class="b-day-line">
-      <mat-icon>cake</mat-icon><p>{{ currUser.birthDate }}</p>
+      <mat-icon>cake</mat-icon><p>{{ currUser.birthDateString }}</p>
     </div>
   </div>
 </mat-card>

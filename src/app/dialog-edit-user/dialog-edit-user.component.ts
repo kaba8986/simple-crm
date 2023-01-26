@@ -18,13 +18,14 @@ export class DialogEditUserComponent implements OnInit {
   user: User;
   userId: string;
   loading = false;
-  birthDate: Date;
+  // birthDate: Date;
 
   ngOnInit(): void {
+
   }
 
   saveUser() {
-    this.user.birthDate = this.birthDate.toLocaleDateString();
+    this.user.birthDateString = this.user.birthDate.toLocaleDateString();
     this.firestore
     .collection('users')
     .doc(this.userId)

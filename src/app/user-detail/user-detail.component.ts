@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 import { DialogEditPicComponent } from '../dialog-edit-pic/dialog-edit-pic.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-detail',
@@ -18,7 +19,8 @@ export class UserDetailComponent implements OnInit {
     private router: Router, 
     private route: ActivatedRoute, 
     private firestore: AngularFirestore,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _location: Location
     ) { }
 
   userId: string;
@@ -67,6 +69,10 @@ export class UserDetailComponent implements OnInit {
     .collection('users')
     .doc(this.userId)
     .delete()
+  }
+
+  pageBack() {
+    this._location.back();
   }
 
 }
