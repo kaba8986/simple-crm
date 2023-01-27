@@ -53,7 +53,6 @@ import { DialogNewTaskComponent } from './components/dialog-new-task/dialog-new-
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     ReactiveFormsModule
-    
   ],
   providers: [{ provide: AUTH_SETTINGS, useValue: { appVerificationDisabledForTesting: true } }],
   bootstrap: [AppComponent]
