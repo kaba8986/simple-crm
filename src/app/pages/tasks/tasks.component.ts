@@ -17,7 +17,7 @@ export class TasksComponent implements OnInit {
   }
 
   openDialog(sub: string) {
-    this.dialog.open(DialogNewTaskComponent);
+    const dialog = this.dialog.open(DialogNewTaskComponent);
   }
 
 }

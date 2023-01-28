@@ -11,7 +11,6 @@ export class DataService {
   allDatas:any = [];
 
   getContacts() {
-    
     this.firestore
     .collection('contacts')
     .valueChanges()

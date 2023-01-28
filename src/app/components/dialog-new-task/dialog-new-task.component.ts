@@ -40,8 +40,10 @@ export class DialogNewTaskComponent implements OnInit {
       setTimeout(()=> {
         console.log(this.contactList);
       }, 2000)
-
   }
 
+  saveTask() {
+    console.log(this.task);
+  }
 
 }
