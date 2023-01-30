@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogNewTaskComponent } from './dialog-new-task.component';
+import { DialogNewTaskComponent } from './dialog-add-task.component';
 
 describe('DialogNewTaskComponent', () => {
   let component: DialogNewTaskComponent;

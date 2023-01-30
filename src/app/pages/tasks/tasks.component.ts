@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogNewTaskComponent } from 'src/app/components/dialog-new-task/dialog-new-task.component';
+import { DialogAddTaskComponent } from 'src/app/components/dialog-add-task/dialog-add-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -16,8 +16,9 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog(sub: string) {
-    const dialog = this.dialog.open(DialogNewTaskComponent);
+  openDialog(sub: number) {
+    const dialog = this.dialog.open(DialogAddTaskComponent);
+    dialog.componentInstance.status = sub;
   }
 
 }

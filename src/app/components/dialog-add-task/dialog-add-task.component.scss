@@ -1,0 +1,48 @@
+.mat-dialog-content {
+  display: flex;
+  gap: 32px;
+}
+
+.left-side,
+.right-side {
+  // flex: 1;
+
+}
+
+.date-picker {
+  position: relative;
+}
+
+#date-picker-toggle {
+  position: absolute;
+  top: -28px;
+  right: 0;
+}
+
+
+.example-panel-red.mat-mdc-select-panel {
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.example-panel-green.mat-mdc-select-panel {
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.example-panel-yellow.mat-mdc-select-panel {
+  background: rgba(255, 204, 0, 0.5);
+}
+
+#save-task-btn {
+  background: #2A5259;
+  color: white;
+  transition: 0.125;
+
+  &:hover  {
+    opacity: 0.8;
+    transition: 0.125;
+  }
+}
+
+#cancel-btn {
+  border: 1px solid lightgray;
+}
