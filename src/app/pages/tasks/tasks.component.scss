@@ -1,14 +1,71 @@
-mat-grid-tile-header {
+.task-page {
   display: flex;
+  gap: 8px;
+  min-height: calc(100vh - 88px);
+}
+
+.task-category-container {
+  width: 25%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.col-head {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  height: 50px;
+  padding: 0 8px;
+  border-radius: 4px;
+  background: rgba(42, 82, 89, 0.2);
 
-  mat-icon {
-
+  h2 {
+    margin: unset;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 
-mat-grid-tile {
-  background: transparent;
-  border: 1px solid grey;
-  min-height: calc(100vh - 88px);
+.col-content {
+  height: 100%;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  mat-card {
+    cursor: pointer;
+    transition: 0.125s;
+
+    &:hover {
+      transform: scale(1.015);
+      transition: 0.125s;
+    }
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+.style-prio-High {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgb(188, 53, 53);
+  color: white;
+}
+
+.style-prio-Middle {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgb(225, 135, 24);
+  color: white;
+}
+
+.style-prio-Low {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgb(48, 156, 38);
+  color: white;
 }

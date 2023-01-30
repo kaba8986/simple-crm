@@ -1,12 +1,24 @@
-<div class="task-container">
-  <mat-grid-list cols="4">
-    <mat-grid-tile *ngFor="let col of colHeads; let i = index">
-      <mat-grid-tile-header>
-        <span>{{col}}</span>
-        <button mat-icon-button>
-          <mat-icon (click)="openDialog(i)">add</mat-icon>
-        </button>
-      </mat-grid-tile-header>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="task-page">
+
+  <div class="task-category-container" *ngFor="let col of colHeads">
+    <div class="col-head">
+      <h2>{{col.name}}</h2>
+      <button mat-icon-button>
+        <mat-icon (click)="openDialog(i)">add</mat-icon>
+      </button>
+    </div>
+    <div class="col-content">
+      <!-- d-none for all tasks that don't fit the category -->
+      <div *ngFor="let task of allTasks" [class.d-none]="task.status != col.value"> 
+        <!--  -->
+        <mat-card *ngIf="task.status == col.value">
+          <mat-card-content>
+            <h2>{{task.title}}</h2>
+            <p>{{task.text}}</p>
+            <span [ngClass]="'style-prio-' + task.prio">{{task.prio}}</span>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </div>
