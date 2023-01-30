@@ -19,7 +19,7 @@ import { Task } from 'src/models/task.class';
 export class DialogAddTaskComponent implements OnInit {
 
   constructor(
-    private firestore: AngularFirestore, 
+    private firestore: AngularFirestore,
     private dataservice: DataService,
     private dialogRef: MatDialogRef<DialogAddTaskComponent>) { }
 
@@ -32,26 +32,22 @@ export class DialogAddTaskComponent implements OnInit {
   contacts = new FormControl('');
   contactList: any = [];
 
-  title = new FormControl('', [Validators.required]);  
-  text = new FormControl('', [Validators.required]);  
-  
+  title = new FormControl('', [Validators.required]);
+  text = new FormControl('', [Validators.required]);
+
 
   ngOnInit(): void {
-    
+
     this.firestore
       .collection('contacts', ref => ref.orderBy('lastName')) //Sort User-Array alphabetically by lastname
       .valueChanges({ idField: 'customIdName' })
       .subscribe((changes: any) => {
         this.contactList = changes;
       })
-
-      setTimeout(()=> {
-        console.log(this.contactList);
-      }, 2000)
   }
 
   saveTask() {
-    if(this.validateForm()) {
+    if (this.validateForm()) {
       this.task.status = this.status;
       this.firestore.collection('tasks').add(this.task.toJSON());
       this.dialogRef.close();
