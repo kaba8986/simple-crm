@@ -4,6 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { throttleTime } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
+import { GetUserByIdService } from 'src/app/services/get-user-by-id.service';
 
 import { Task } from 'src/models/task.class';
 
@@ -21,12 +22,12 @@ export class DialogAddTaskComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private dataservice: DataService,
-    private dialogRef: MatDialogRef<DialogAddTaskComponent>) { }
+    private dialogRef: MatDialogRef<DialogAddTaskComponent>
+    ) { }
 
   task = new Task();
   loading = 'false';
   categories = ['Design', 'Sale', 'Media', 'Backoffice'];
-  status: number;
   // status = ['to do', 'in progress', 'awaiting feedback', 'done'];
   prios = ['high', 'middle', 'low'];
   contacts = new FormControl('');
@@ -48,7 +49,8 @@ export class DialogAddTaskComponent implements OnInit {
 
   saveTask() {
     if (this.validateForm()) {
-      this.task.status = this.status;
+      console.log(this.task);
+      this.task.creationDateString = this.task.creationDate.toDateString();
       this.firestore.collection('tasks').add(this.task.toJSON());
       this.dialogRef.close();
     }

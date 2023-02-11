@@ -29,6 +29,8 @@ export class DialogAddContactComponent implements OnInit {
       this.dialogRef.close();
     });
     this.loading = false;
+
+
   }
 
 }

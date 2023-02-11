@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddTaskComponent } from 'src/app/components/dialog-add-task/dialog-add-task.component';
+import { DialogTaskDetailComponent } from 'src/app/components/dialog-task-detail/dialog-task-detail.component';
+import { getFirestore, doc, getDoc } from 'firebase/firestore'; 
 
 @Component({
   selector: 'app-tasks',
@@ -12,24 +14,36 @@ export class TasksComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) { }
 
-  colHeads = [
-    {value: 0, name: 'To do' },
-    {value: 1, name: 'In Progress' },
-    {value: 2, name: 'Awaiting Feedback' },
-    {value: 3, name: 'Done' }
-  ];
-
   allTasks: any = [];
+  dateString: string;
+  loading = 'false';
+  filterOptions = ['Priority', 'Date', 'DueDate'];
+
 
   ngOnInit(): void {
     this.firestore.collection('tasks').valueChanges().subscribe((data: any) => {
       this.allTasks = data;
     })
+
+    console.log(this.firestore.collection('contacts').doc('B2cL4M6woAHLaqoLFoZc').get());
+
+
   }
 
-  openDialog(sub: number) {
+  openDialog() {
     const dialog = this.dialog.open(DialogAddTaskComponent);
-    dialog.componentInstance.status = sub;
+  }
+  
+  openTaskDetails(k: number) {
+    const dialog = this.dialog.open(DialogTaskDetailComponent);
+    dialog.componentInstance.openedTask = this.allTasks[k];
+  }
+
+  getImgSrc(contactIds: any) {
+    const db = getFirestore();
+    contactIds.forEach((el) => {
+      console.log(doc(db, 'contacts', el));
+    });
   }
 
 }

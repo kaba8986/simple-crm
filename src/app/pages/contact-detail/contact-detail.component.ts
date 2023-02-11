@@ -8,6 +8,7 @@ import { DialogEditUserComponent } from '../../components/dialog-edit-user/dialo
 import { DialogEditPicComponent } from '../../components/dialog-edit-pic/dialog-edit-pic.component';
 import { Location } from '@angular/common';
 import { DialogDeleteWarningComponent } from '../../components/dialog-delete-warning/dialog-delete-warning.component';
+import { GetUserByIdService } from 'src/app/services/get-user-by-id.service';
 
 @Component({
   selector: 'app-contact-detail',
@@ -21,7 +22,8 @@ export class ContactDetailComponent implements OnInit {
     private route: ActivatedRoute, 
     private firestore: AngularFirestore,
     public dialog: MatDialog,
-    private _location: Location
+    private _location: Location,
+
     ) { }
 
   contactId: string;

@@ -1,4 +1,5 @@
 export class Contact {
+  userId: string;
   img: string;
   firstName: string;
   lastName: string;
@@ -14,6 +15,7 @@ export class Contact {
   twitter: string;
 
   constructor(obj?: any) {
+    this.userId = "";
     this.img = 'profile0';
     this.firstName = obj ? obj.firstName : "";
     this.lastName = obj ? obj.lastName : "";
@@ -31,6 +33,7 @@ export class Contact {
 
   public toJSON() {
     return {
+      userId: this.userId,
       img: this.img,
       firstName: this.firstName,
       lastName: this.lastName,

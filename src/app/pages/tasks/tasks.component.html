@@ -1,6 +1,48 @@
+<div class="greeting-container">
+  <h2>Welcome to Taskboard!</h2>
+  <p>To see your personal tasks, please log in.</p>
+  <img src="assets/img/office-bg.png">
+  <button id="add-task-btn" (click)="openDialog()"><mat-icon>add</mat-icon> Add New Task</button>
+</div>
+
 <div class="task-page">
 
-  <div class="task-category-container" *ngFor="let col of colHeads">
+  <mat-toolbar class="filter-tasks-bar">
+    <h2>All Tasks</h2>
+    <div class="filter-box">
+      <p>sort by</p>
+      <select class="select-filter-options">
+        <option value="">- all Tasks - </option>
+        <option *ngFor="let option of filterOptions" value="{{option}}">{{option}}</option>
+      </select>
+    </div>
+  </mat-toolbar>
+
+  <mat-card *ngFor="let task of allTasks; let i = index">
+    <mat-card-content>
+      <div class="card-frame"></div>
+      <div class="card-header">
+        <span>{{task.category}}</span>
+        <span id="creation-date">{{task.creationDateString}}</span>
+      </div>
+      <h2>{{task.title}}</h2>
+      <p>{{task.text}}</p>
+      <div class="card-subline">
+        <div class="prio-line">
+          <span>Priority: </span>
+          <span [ngClass]="'style-prio-' + task.prio">{{task.prio}}</span>
+        </div>
+        <div class="assigned-to-box">
+          <span>
+            
+          </span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- 
+  <div class="task-category-container" *ngFor="let col of colHeads; let i = index;">
     <div class="col-head">
       <h2>{{col.name}}</h2>
       <button mat-icon-button>
@@ -8,17 +50,21 @@
       </button>
     </div>
     <div class="col-content">
-      <!-- d-none for all tasks that don't fit the category -->
-      <div *ngFor="let task of allTasks" [class.d-none]="task.status != col.value"> 
-        <!--  -->
-        <mat-card *ngIf="task.status == col.value">
+      <div *ngFor="let task of allTasks; let k = index" [class.d-none]="task.status != col.value"> 
+        <mat-card *ngIf="task.status == col.value" (click)="openTaskDetails(k)">
           <mat-card-content>
             <h2>{{task.title}}</h2>
             <p>{{task.text}}</p>
-            <span [ngClass]="'style-prio-' + task.prio">{{task.prio}}</span>
+            <div class="prio-line">
+              <span>Priority: </span>
+              <span [ngClass]="'style-prio-' + task.prio">{{task.prio}}</span>
+            </div>
           </mat-card-content>
         </mat-card>
       </div>
     </div>
-  </div>
+  </div> -->
+
+
+
 </div>

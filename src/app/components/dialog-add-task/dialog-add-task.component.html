@@ -33,7 +33,7 @@
         <mat-form-field  appearance="outline">
           <mat-label>Assigned to</mat-label>
           <mat-select [attr.disabled]="loading" [formControl]="contacts" [(ngModel)]="task.assignedTo" multiple>
-            <mat-option *ngFor="let contact of contactList" value="{{contact.lastName + ', ' + contact.firstName }}">{{contact.lastName + ', ' +
+            <mat-option *ngFor="let contact of contactList" value="{{contact.customIdName}}">{{contact.lastName + ', ' +
               contact.firstName}}</mat-option>
           </mat-select>
         </mat-form-field>

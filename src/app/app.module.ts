@@ -25,6 +25,8 @@ import { TasksComponent } from './pages/tasks/tasks.component';
 import { DialogEditPicComponent } from './components/dialog-edit-pic/dialog-edit-pic.component';
 import { DialogDeleteWarningComponent } from './components/dialog-delete-warning/dialog-delete-warning.component';
 import { DialogAddTaskComponent } from './components/dialog-add-task/dialog-add-task.component';
+import { DialogTaskDetailComponent } from './components/dialog-task-detail/dialog-task-detail.component';
+import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { DialogAddTaskComponent } from './components/dialog-add-task/dialog-add-
     DialogEditUserComponent,
     TasksComponent,
     DialogEditPicComponent,
-    DialogDeleteWarningComponent
+    DialogDeleteWarningComponent,
+    DialogTaskDetailComponent,
+    TaskDetailComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

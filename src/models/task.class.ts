@@ -4,6 +4,8 @@ export class Task {
     status: number;
     category: string;
     assignedTo: number[];
+    creationDate: Date;
+    creationDateString: string;
     dueDate: any;
     prio: string;
     subtasks: string[];
@@ -14,6 +16,8 @@ export class Task {
         this.status = obj ? obj.status : 0;
         this.category = obj ? obj.category : "";
         this.assignedTo = obj ? obj.assignedTo : [];
+        this.creationDate = new Date();
+        this.creationDateString = "";
         this.dueDate = obj ? obj.dueDate : "-";
         this.prio = obj ? obj.prio : "Middle";
         this.subtasks = obj ? obj.subtasks : [];
@@ -26,6 +30,8 @@ export class Task {
             status: this.status,
             category: this.category,
             assignedTo: this.assignedTo,
+            creationDate: this.creationDate,
+            creationDateString: this.creationDateString,
             dueDate: this.dueDate,
             prio: this.prio,
             subtasks: this.subtasks
