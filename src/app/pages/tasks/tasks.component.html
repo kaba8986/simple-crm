@@ -18,7 +18,7 @@
     </div>
   </mat-toolbar>
 
-  <mat-card *ngFor="let task of allTasks; let i = index">
+  <mat-card *ngFor="let task of allTasks; let i = index" routerLink="/tasks/{{task.customIdName}}">
     <mat-card-content>
       <div class="card-frame"></div>
       <div class="card-header">

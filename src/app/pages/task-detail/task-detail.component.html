@@ -1,1 +1,23 @@
-<p>task-detail works!</p>
+<mat-icon (click)="goBack()">arrow_back</mat-icon>
+<mat-card>
+    <mat-card-content>
+      <div class="card-frame"></div>
+      <div class="card-header">
+        <span>Category</span>
+        <span id="creation-date">Date</span>
+      </div>
+      <h2>{{currTask.title}}</h2>
+      <p>Text</p>
+      <div class="card-subline">
+        <div class="prio-line">
+          <span>Priority: </span>
+          <span >prio</span>
+        </div>
+        <div class="assigned-to-box">
+          <span>
+            
+          </span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>

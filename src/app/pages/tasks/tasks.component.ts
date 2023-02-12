@@ -21,13 +21,9 @@ export class TasksComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.firestore.collection('tasks').valueChanges().subscribe((data: any) => {
+    this.firestore.collection('tasks').valueChanges({ idField: 'customIdName' }).subscribe((data: any) => {
       this.allTasks = data;
     })
-
-    console.log(this.firestore.collection('contacts').doc('B2cL4M6woAHLaqoLFoZc').get());
-
-
   }
 
   openDialog() {
