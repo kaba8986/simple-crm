@@ -22,6 +22,8 @@ export class TaskDetailComponent implements OnInit {
   taskId: string;
   currTask: Task = new Task();
   today = new Date();
+  daysOverDate: number;
+  hoursOverDate: number;
 
   ngOnInit(): void {
     this.route.paramMap
@@ -29,10 +31,6 @@ export class TaskDetailComponent implements OnInit {
       this.taskId = paramMap.get('id');
       this.getTask();
     });
-
-    setTimeout(() => {
-      console.log(this.currTask);
-    }, 3000);
   }
 
   getTask() {
@@ -42,17 +40,13 @@ export class TaskDetailComponent implements OnInit {
     .valueChanges()
     .subscribe((task: any) => {
       this.currTask = new Task(task);
+      this.checkDueDate(this.currTask);
     })
   }
 
-  /*
-  async getTask() {
-    const docRef = doc(this.db, "tasks", this.taskId);
-    const docSnap = await getDoc(docRef);
-    this.currTask = new Task(docSnap.data());
-    console.log(this.currTask);
+  checkDueDate(task: any) {
+    return task.dueDate.seconds*1000 - this.today.getTime();
   }
-  */
 
   goBack() {
       this.loc.back();

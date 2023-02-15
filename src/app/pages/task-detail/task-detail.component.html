@@ -11,9 +11,9 @@
       <div class="card-subline">
         <div class="due-line">
           <span>Due Date: </span>
-          <span class="time-over">{{currTask.dueDateString}}</span>
+          <span [class.time-over]="checkDueDate(currTask) < 0">{{currTask.dueDateString}}</span>
           <!-- <span [ngClass]="'style-prio-' + task.prio">{{task.prio}}</span> -->
-          <span *ngIf=""></span>
+          <span class="time-over" *ngIf="checkDueDate(currTask) < 0"> !! time over !!</span>
         </div>
         <div class="assigned-to-box">
           <span>
