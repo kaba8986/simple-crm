@@ -28,9 +28,10 @@
       <h2>{{task.title}}</h2>
       <p>{{task.text}}</p>
       <div class="card-subline">
-        <div class="prio-line">
-          <span>Priority: </span>
-          <span [ngClass]="'style-prio-' + task.prio">{{task.prio}}</span>
+        <div class="due-line">
+          <span>Due Date: </span>
+          <span>{{task.dueDateString}}</span>
+          <!-- <span [ngClass]="'style-prio-' + task.prio">{{task.prio}}</span> -->
         </div>
         <div class="assigned-to-box">
           <span>
@@ -40,6 +41,10 @@
       </div>
     </mat-card-content>
   </mat-card>
+
+  <div class="no-tasks" *ngIf="allTasks.length == 0">
+    <mat-icon (click)="openDialog()">add</mat-icon>
+  </div>
 
   <!-- 
   <div class="task-category-container" *ngFor="let col of colHeads; let i = index;">

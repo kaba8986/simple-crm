@@ -21,6 +21,7 @@ export class TaskDetailComponent implements OnInit {
   db  = getFirestore();
   taskId: string;
   currTask: Task = new Task();
+  today = new Date();
 
   ngOnInit(): void {
     this.route.paramMap
@@ -28,6 +29,10 @@ export class TaskDetailComponent implements OnInit {
       this.taskId = paramMap.get('id');
       this.getTask();
     });
+
+    setTimeout(() => {
+      console.log(this.currTask);
+    }, 3000);
   }
 
   getTask() {

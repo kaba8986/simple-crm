@@ -18,6 +18,8 @@ export class TasksComponent implements OnInit {
   dateString: string;
   loading = 'false';
   filterOptions = ['Priority', 'Date', 'DueDate'];
+  dueDateOver = false;
+  today = new Date();
 
 
   ngOnInit(): void {

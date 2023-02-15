@@ -4,14 +4,16 @@
       <div class="card-frame"></div>
       <div class="card-header">
         <span>{{currTask.category}}</span>
-        <span id="creation-date">Date</span>
+        <span class="due-date">{{currTask.creationDateString}}</span>
       </div>
       <h2>{{currTask.title}}</h2>
       <p>{{currTask.text}}</p>
       <div class="card-subline">
-        <div class="prio-line">
-          <span>Priority: </span>
-          <span >{{currTask.prio}}</span>
+        <div class="due-line">
+          <span>Due Date: </span>
+          <span class="time-over">{{currTask.dueDateString}}</span>
+          <!-- <span [ngClass]="'style-prio-' + task.prio">{{task.prio}}</span> -->
+          <span *ngIf=""></span>
         </div>
         <div class="assigned-to-box">
           <span>

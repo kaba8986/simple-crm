@@ -51,8 +51,10 @@ export class DialogAddTaskComponent implements OnInit {
     if (this.validateForm()) {
       console.log(this.task);
       this.task.creationDateString = this.task.creationDate.toDateString();
+      this.task.dueDateString = this.task.dueDate.toDateString();
       this.firestore.collection('tasks').add(this.task.toJSON());
       this.dialogRef.close();
+      console.log(this.task);
     }
   }
 

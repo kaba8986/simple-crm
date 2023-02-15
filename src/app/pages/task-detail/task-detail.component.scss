@@ -44,8 +44,13 @@ mat-card {
     margin-bottom:  8px;
   }
   
-  #creation-date {
+  .due-date {
     color: rgba(42, 82, 89, 0.6);
+  }
+
+  .time-over {
+    color:rgb(216, 6, 6);
+    font-weight: 600;
   }
   
   .d-none {
