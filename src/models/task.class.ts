@@ -14,7 +14,7 @@ export class Task {
         this.title = obj ? obj.title : "";
         this.text = obj ? obj.text : "";
         this.status = obj ? obj.status : 0;
-        this.category = obj ? obj.category : "";
+        this.category = obj ? obj.category : "[no category]";
         this.assignedTo = obj ? obj.assignedTo : [];
         this.creationDate = new Date();
         this.creationDateString = "";

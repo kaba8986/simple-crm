@@ -8,7 +8,6 @@ import firebase from 'firebase/compat/app';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'simple-crm';
 
   constructor(public auth: AngularFireAuth) {}
   

@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { Task } from 'src/models/task.class';
@@ -13,12 +14,13 @@ export class TaskDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private loc: Location
+    private loc: Location,
+    private firestore: AngularFirestore
   ) { }
 
   db  = getFirestore();
   taskId: string;
-  currTask: Task;
+  currTask: Task = new Task();
 
   ngOnInit(): void {
     this.route.paramMap
@@ -28,12 +30,24 @@ export class TaskDetailComponent implements OnInit {
     });
   }
 
+  getTask() {
+    this.firestore
+    .collection('tasks')
+    .doc(this.taskId)
+    .valueChanges()
+    .subscribe((task: any) => {
+      this.currTask = new Task(task);
+    })
+  }
+
+  /*
   async getTask() {
     const docRef = doc(this.db, "tasks", this.taskId);
     const docSnap = await getDoc(docRef);
     this.currTask = new Task(docSnap.data());
     console.log(this.currTask);
   }
+  */
 
   goBack() {
       this.loc.back();

@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { DialogEditPicComponent } from './dialog-edit-pic.component';
 
@@ -8,7 +10,8 @@ describe('DialogEditPicComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogEditPicComponent ]
+      declarations: [ DialogEditPicComponent ],
+      providers: [MatDialogModule, AngularFirestore]
     })
     .compileComponents();
 

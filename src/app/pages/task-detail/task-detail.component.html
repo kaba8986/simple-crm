@@ -3,15 +3,15 @@
     <mat-card-content>
       <div class="card-frame"></div>
       <div class="card-header">
-        <span>Category</span>
+        <span>{{currTask.category}}</span>
         <span id="creation-date">Date</span>
       </div>
       <h2>{{currTask.title}}</h2>
-      <p>Text</p>
+      <p>{{currTask.text}}</p>
       <div class="card-subline">
         <div class="prio-line">
           <span>Priority: </span>
-          <span >prio</span>
+          <span >{{currTask.prio}}</span>
         </div>
         <div class="assigned-to-box">
           <span>
