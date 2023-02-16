@@ -49,6 +49,8 @@ export class TaskDetailComponent implements OnInit {
   }
 
   checkDueDate(task: any) {
+    console.log(this.today);  
+    console.log(task.dueDate);
     return task.dueDate.seconds*1000 - this.today.getTime();
   }
 
