@@ -79,6 +79,16 @@
   }
 }
 
+
+.overdue {
+  color:rgb(216, 6, 6);
+  font-weight: 600;
+}
+
+.overdue-frame {
+  background:rgb(216, 6, 6) !important;
+}
+
 .select-filter-options {
   height: 30px;
   padding: 4px;

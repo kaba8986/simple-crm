@@ -7,8 +7,10 @@ export class Task {
     assignedToAsObject: any [];
     creationDate: Date;
     creationDateString: string;
+    creationDateMilli: number;
     dueDate: any;
     dueDateString: string;
+    dueDateMilli: number;
     prio: string;
     subtasks: string[];
 
@@ -21,8 +23,10 @@ export class Task {
         this.assignedToAsObject = obj ? obj.assignedToAsObject : [];
         this.creationDate = new Date();
         this.creationDateString = obj ? obj.creationDateString : "";
+        this.creationDateMilli = obj ? obj.creationDateMilli : 0;
         this.dueDate = obj ? obj.dueDate : "";
         this.dueDateString = obj ? obj.dueDateString : "[no Due Date]";
+        this.dueDateMilli = obj ? obj.dueDateMilli : 0;
         this.prio = obj ? obj.prio : "Middle";
         this.subtasks = obj ? obj.subtasks : [];
     }
@@ -37,8 +41,10 @@ export class Task {
             assignedToAsObject: this.assignedToAsObject,
             creationDate: this.creationDate,
             creationDateString: this.creationDateString,
+            creationDateMilli: this.creationDateMilli,
             dueDate: this.dueDate,
             dueDateString: this.dueDateString,
+            dueDateMilli: this.dueDateMilli,
             prio: this.prio,
             subtasks: this.subtasks
         }

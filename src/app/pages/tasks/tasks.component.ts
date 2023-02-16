@@ -28,6 +28,12 @@ export class TasksComponent implements OnInit {
     })
   }
 
+  checkDueDate(task: any) {
+    if(task.dueDate != ""){
+      return task.dueDateMilli - this.today.getTime();
+    } 
+  }
+
   openDialog() {
     const dialog = this.dialog.open(DialogAddTaskComponent);
   }

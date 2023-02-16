@@ -1,7 +1,7 @@
 <mat-icon (click)="goBack()">arrow_back</mat-icon>
 <mat-card>
     <mat-card-content>
-      <div class="card-frame"></div>
+      <div class="card-frame"  [class.overdue-frame]="checkDueDate(currTask) < 0" ></div>
       <div class="card-header">
         <span>{{currTask.category}}</span>
         <button mat-icon-button class="edit-user-btn" [matMenuTriggerFor]="userMenu">
@@ -18,9 +18,9 @@
         <div class="due-line">
           <div class="due-date">from {{currTask.creationDateString}}</div>
           <span>Due Date: </span>
-          <span [class.time-over]="checkDueDate(currTask) < 0">{{currTask.dueDateString}}</span>
+          <span [class.overdue]="checkDueDate(currTask) < 0">{{currTask.dueDateString}}</span>
           <!-- <span [ngClass]="'style-prio-' + task.prio">{{task.prio}}</span> -->
-          <span class="time-over" *ngIf="checkDueDate(currTask) < 0"> !! time over !!</span>
+          <span class="overdue" *ngIf="checkDueDate(currTask) < 0"> !! overdue !!</span>
         </div>
         <div class="assigned-to-box">
           <span>
