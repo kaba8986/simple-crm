@@ -1,0 +1,22 @@
+.log-container {
+    padding-top: 40px;
+}
+
+.hint-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    color: #2A5259;
+}
+
+button {
+    background-color: #2A5259;
+    color: #fff;
+    margin-top: 24px;
+
+    &:hover {
+        background: rgba(42, 82, 89, 0.8);
+    }
+}

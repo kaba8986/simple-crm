@@ -1,0 +1,22 @@
+<div class="log-container">
+    <form action="">
+        <h2>Login</h2>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" [disabled]="loading" matInput placeholder="email">
+            <!-- <mat-hint>Please enter street.</mat-hint> -->
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" [disabled]="loading" matInput placeholder="password">
+            <!-- <mat-hint>Please enter street.</mat-hint> -->
+        </mat-form-field>
+        <div class="hint-line">
+            <a routerLink="/signin">You don't have an account? Please signin!</a><br>
+            <a routerLink="/forgot-password">Forgot password?</a>
+        </div>
+        <div mat-dialog-actions>
+            <button [disabled]="loading" mat-button cdkFocusInitial (click)="login()">Login</button>
+        </div>
+    </form>
+</div>

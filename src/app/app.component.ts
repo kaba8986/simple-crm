@@ -9,14 +9,16 @@ import firebase from 'firebase/compat/app';
 })
 export class AppComponent {
 
-  constructor(public auth: AngularFireAuth) {}
+  constructor() {}
+
+ 
   
 
   login() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+
   }
 
   logout() {
-    this.auth.signOut();
+
   }
 }

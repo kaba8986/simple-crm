@@ -26,14 +26,7 @@
             <h2>Hello Name!</h2>
             <mat-icon [matMenuTriggerFor]="settingsMenu">settings</mat-icon>
             <mat-menu #settingsMenu="matMenu">
-              <button mat-menu-item (click)="login()">Login</button>
-              <button mat-menu-item (click)="logout()">Logout</button>
-            </mat-menu>
-          </div>
-          <div class="login-container">
-            <mat-icon [matMenuTriggerFor]="settingsMenu">settings</mat-icon>
-            <mat-menu #settingsMenu="matMenu">
-              <button mat-menu-item (click)="login()">Login</button>
+              <button mat-menu-item (click)="login()" routerLink="/login">Login</button>
               <button mat-menu-item (click)="logout()">Logout</button>
             </mat-menu>
           </div>
