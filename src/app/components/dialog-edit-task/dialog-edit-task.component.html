@@ -5,7 +5,7 @@
       <div>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Titel</mat-label>
-          <input [attr.disabled]="loading" [(ngModel)]="task.title" matInput placeholder="Titel" [formControl]="title" required>
+          <input [attr.disabled]="loading" [(ngModel)]="currTask.title" matInput placeholder="Titel" [formControl]="title" required>
           <mat-error *ngIf="title.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
       </div>
@@ -13,14 +13,14 @@
       <div>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Text</mat-label>
-          <textarea class="text-area" [attr.disabled]="loading" [(ngModel)]="task.text" matInput placeholder="Text" [formControl]="text" required></textarea>
+          <textarea class="text-area" [attr.disabled]="loading" [(ngModel)]="currTask.text" matInput placeholder="Text" [formControl]="text" required></textarea>
           <mat-error *ngIf="text.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Category</mat-label>
-          <mat-select [attr.disabled]="loading" [(ngModel)]="task.category">
+          <mat-select [attr.disabled]="loading" [(ngModel)]="currTask.category">
             <mat-option *ngFor="let cat of categories" value="{{cat}}">
               {{cat}}
             </mat-option>
@@ -30,7 +30,7 @@
       <div>
         <mat-form-field  appearance="outline" class="full-width">
           <mat-label>Assigned to</mat-label>
-          <mat-select [attr.disabled]="loading" [formControl]="contacts" [(ngModel)]="task.assignedTo" multiple>
+          <mat-select [attr.disabled]="loading" [formControl]="contacts" [(ngModel)]="currTask.assignedTo" multiple>
             <mat-option *ngFor="let contact of contactList" value="{{contact.customIdName}}">{{contact.lastName + ', ' +
               contact.firstName}}</mat-option>
           </mat-select>
@@ -39,7 +39,7 @@
       <div>
         <mat-form-field appearance="outline" class="date-picker" class="full-width">
           <mat-label>Due Date</mat-label>
-          <input [attr.disabled]="loading" matInput [matDatepicker]="picker" [(ngModel)]="task.dueDate">
+          <input [attr.disabled]="loading" matInput [matDatepicker]="picker" [value]="storedDate">
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matSuffix [for]="picker" id="date-picker-toggle"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>

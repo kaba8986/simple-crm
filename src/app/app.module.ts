@@ -27,6 +27,7 @@ import { DialogDeleteWarningComponent } from './components/dialog-delete-warning
 import { DialogAddTaskComponent } from './components/dialog-add-task/dialog-add-task.component';
 import { DialogTaskDetailComponent } from './components/dialog-task-detail/dialog-task-detail.component';
 import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
+import { DialogEditTaskComponent } from './components/dialog-edit-task/dialog-edit-task.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
     DialogEditPicComponent,
     DialogDeleteWarningComponent,
     DialogTaskDetailComponent,
-    TaskDetailComponent
+    TaskDetailComponent,
+    DialogEditTaskComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

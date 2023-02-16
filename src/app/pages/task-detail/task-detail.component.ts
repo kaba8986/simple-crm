@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { DialogDeleteWarningComponent } from 'src/app/components/dialog-delete-warning/dialog-delete-warning.component';
+import { DialogEditTaskComponent } from 'src/app/components/dialog-edit-task/dialog-edit-task.component';
 import { Task } from 'src/models/task.class';
 
 @Component({
@@ -55,11 +56,13 @@ export class TaskDetailComponent implements OnInit {
       this.loc.back();
   }
 
-  editUserDetails() {
-
+  editTask() {
+    const dialog = this.dialog.open(DialogEditTaskComponent);
+    dialog.componentInstance.currTask = new Task(this.currTask.toJSON())
+    dialog.componentInstance.taskId = this.taskId;
   }
 
-  deleteUser() {
+  deleteTask() {
     const dialog = this.dialog.open(DialogDeleteWarningComponent);
     dialog.componentInstance.currId = this.taskId;
     dialog.componentInstance.collection = 'tasks';
