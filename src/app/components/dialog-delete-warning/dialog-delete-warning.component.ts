@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -14,17 +15,19 @@ export class DialogDeleteWarningComponent implements OnInit {
     private firestore: AngularFirestore
     ) { }
 
-    contactId: string;
+    currId: string;
+    collection: string;
 
   ngOnInit(): void {
   }
 
   deleteEntry() {
     this.firestore
-    .collection('contacts')
-    .doc(this.contactId)
+    .collection(this.collection)
+    .doc(this.currId)
     .delete()
-    .then(() => this.dialogRef.close())
+    .then(() => {
+      this.dialogRef.close();
+    })
   }
-
 }

@@ -1,8 +1,10 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import { DialogDeleteWarningComponent } from 'src/app/components/dialog-delete-warning/dialog-delete-warning.component';
 import { Task } from 'src/models/task.class';
 
 @Component({
@@ -15,7 +17,8 @@ export class TaskDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private loc: Location,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private dialog: MatDialog
   ) { }
 
   db  = getFirestore();
@@ -50,6 +53,16 @@ export class TaskDetailComponent implements OnInit {
 
   goBack() {
       this.loc.back();
+  }
+
+  editUserDetails() {
+
+  }
+
+  deleteUser() {
+    const dialog = this.dialog.open(DialogDeleteWarningComponent);
+    dialog.componentInstance.currId = this.taskId;
+    dialog.componentInstance.collection = 'tasks';
   }
 
 }

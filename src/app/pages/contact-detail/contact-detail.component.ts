@@ -69,7 +69,8 @@ export class ContactDetailComponent implements OnInit {
 
   deleteUser() {
     const dialog = this.dialog.open(DialogDeleteWarningComponent);
-    dialog.componentInstance.contactId = this.contactId;
+    dialog.componentInstance.currId = this.contactId;
+    dialog.componentInstance.collection = 'contacts';
   }
 
   pageBack() {

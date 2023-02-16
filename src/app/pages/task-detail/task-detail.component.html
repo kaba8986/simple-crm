@@ -4,12 +4,19 @@
       <div class="card-frame"></div>
       <div class="card-header">
         <span>{{currTask.category}}</span>
-        <span class="due-date">{{currTask.creationDateString}}</span>
+        <button mat-icon-button class="edit-user-btn" [matMenuTriggerFor]="userMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item (click)="editUserDetails()">Edit</button>
+          <button mat-menu-item (click)="deleteUser()">Delete</button>
+        </mat-menu>
       </div>
       <h2>{{currTask.title}}</h2>
       <p>{{currTask.text}}</p>
       <div class="card-subline">
         <div class="due-line">
+          <div class="due-date">from {{currTask.creationDateString}}</div>
           <span>Due Date: </span>
           <span [class.time-over]="checkDueDate(currTask) < 0">{{currTask.dueDateString}}</span>
           <!-- <span [ngClass]="'style-prio-' + task.prio">{{task.prio}}</span> -->
@@ -20,6 +27,7 @@
             
           </span>
         </div>
+
       </div>
     </mat-card-content>
   </mat-card>
