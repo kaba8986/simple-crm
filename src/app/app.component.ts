@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import firebase from 'firebase/compat/app';
+
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,13 @@ import firebase from 'firebase/compat/app';
 })
 export class AppComponent {
 
+
+
   constructor() {}
 
- 
+  ngOninit(): void {
+
+  }
   
 
   login() {
