@@ -23,13 +23,15 @@ export class DialogAddTaskComponent implements OnInit {
     private firestore: AngularFirestore,
     private dataservice: DataService,
     private dialogRef: MatDialogRef<DialogAddTaskComponent>
-    ) { }
+    ) {
+      this.minDate = new Date();
+     }
 
   task = new Task();
   loading = 'false';
-  categories = ['Design', 'Sale', 'Media', 'Backoffice'];
+  categories = ['General', 'Design', 'Sale', 'Media', 'Backoffice'];
   // status = ['to do', 'in progress', 'awaiting feedback', 'done'];
-  prios = ['high', 'middle', 'low'];
+  minDate: Date;
   contacts = new FormControl('');
   contactList: any = [];
 
@@ -49,13 +51,15 @@ export class DialogAddTaskComponent implements OnInit {
 
   saveTask() {
     if (this.validateForm()) {
-      console.log(this.task);
+
       this.task.creationDateString = this.task.creationDate.toDateString();
-      this.task.dueDateString = this.task.dueDate.toDateString();
-      this.task.dueDate = this.task.dueDate.toString();
+      if(this.task.dueDate != "") {
+        this.task.dueDateString = this.task.dueDate.toDateString();
+        this.task.dueDate = this.task.dueDate.toString();
+      }
       this.firestore.collection('tasks').add(this.task.toJSON());
       this.dialogRef.close();
-      console.log(this.task);
+
     }
   }
 

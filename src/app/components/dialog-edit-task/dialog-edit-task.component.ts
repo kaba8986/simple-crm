@@ -46,6 +46,8 @@ export class DialogEditTaskComponent implements OnInit {
   }
 
   async saveTask() {
+    console.log(this.currTask);
+    
     this.firestore
     .collection('tasks')
     .doc(this.taskId)
@@ -54,6 +56,7 @@ export class DialogEditTaskComponent implements OnInit {
       this.loading = false;
       this.dialogRef.close();
     })
+    
   }
 
 }
