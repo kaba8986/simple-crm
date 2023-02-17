@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { Auth } from '@angular/fire/auth';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { User } from 'src/models/user.class';
+import { doc, getFirestore, setDoc } from "firebase/firestore"; 
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-signin',
@@ -9,22 +15,32 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 export class SigninComponent implements OnInit {
 
   loading = false;
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
+  user = new User();
+  db = getFirestore();
 
-  constructor() { }
+  public signUpForm: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+    private auth: Auth,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.signUpForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
-  signin() {
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, this.email, this.password)
-    .then((userCredential) => {
+  register() {
+    createUserWithEmailAndPassword(this.auth, this.signUpForm.value.email, this.signUpForm.value.password)
+    .then((response: any) => {
       // Signed in 
-      const user = userCredential.user;
+      const uid = response.user.uid;
+
+      this.createOnFirestore(uid);
+      this.router.navigate([['login']]);
       // ...
     })
     .catch((error) => {
@@ -32,6 +48,12 @@ export class SigninComponent implements OnInit {
       const errorMessage = error.message;
       // ..
     });
+  }
+
+  async createOnFirestore(id: string) {
+    this.user.userID = id;
+    console.log(this.user.toJson());
+    await setDoc(doc(this.db, "users", id), this.user.toJson());
   }
 
 }

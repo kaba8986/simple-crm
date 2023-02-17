@@ -1,29 +1,32 @@
 <div class="log-container">
-    <form action="">
-        <h2>Signin</h2>
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Firstname</mat-label>
-            <input type="text" [disabled]="loading" matInput placeholder="firstname">
-            <!-- <mat-hint>Please enter street.</mat-hint> -->
-        </mat-form-field>
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Lastname</mat-label>
-            <input type="text" [disabled]="loading" matInput placeholder="lastname">
-            <!-- <mat-hint>Please enter street.</mat-hint> -->
-        </mat-form-field>
+    <h2>Signin</h2>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Firstname</mat-label>
+        <input type="text" [(ngModel)]="user.firstName" name="firstName" matInput placeholder="firstname">
+        <!-- <mat-hint>Please enter street.</mat-hint> -->
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Lastname</mat-label>
+        <input type="text" [(ngModel)]="user.lastName" name="lastName" matInput placeholder="lastname">
+        <!-- <mat-hint>Please enter street.</mat-hint> -->
+    </mat-form-field>
+
+    <form [formGroup]="signUpForm" (ngSubmit)="register()">
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Email</mat-label>
-            <input type="email" [disabled]="loading" matInput placeholder="email">
+            <input formControlName="email" type="email" [(ngModel)]="user.email" name="email" matInput
+                placeholder="email">
             <!-- <mat-hint>Please enter street.</mat-hint> -->
         </mat-form-field>
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Password</mat-label>
-            <input type="password" [disabled]="loading" matInput placeholder="password">
+            <input formControlName="password" type="password" name="password" matInput placeholder="password">
             <!-- <mat-hint>Please enter street.</mat-hint> -->
         </mat-form-field>
         <a routerLink="/login">Alreade have an account? Please login!</a>
         <div mat-dialog-actions>
-            <button [disabled]="loading" mat-button cdkFocusInitial (click)="signin()">Signin</button>
+            <button type="submit" mat-button cdkFocusInitial>Signin</button>
         </div>
     </form>
 </div>
