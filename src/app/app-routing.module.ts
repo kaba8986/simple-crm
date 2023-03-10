@@ -8,12 +8,14 @@ import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { SuccessComponent } from './pages/success/success.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'login', component: LoginComponent},
   { path: 'signin', component: SigninComponent},
+  { path: 'success', component: SuccessComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: 'contacts', component: ContactsComponent},
   { path: 'contacts/:id', component: ContactDetailComponent },

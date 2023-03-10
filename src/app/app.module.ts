@@ -31,6 +31,7 @@ import { DialogEditTaskComponent } from './components/dialog-edit-task/dialog-ed
 import { LoginComponent } from './pages/login/login.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { SuccessComponent } from './pages/success/success.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     DialogEditTaskComponent,
     LoginComponent,
     SigninComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    SuccessComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

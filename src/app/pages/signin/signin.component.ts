@@ -15,24 +15,31 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class SigninComponent implements OnInit {
 
   loading = false;
+  /*
   user = new User();
   db = getFirestore();
 
   public signUpForm: FormGroup;
+  */
 
   constructor(
+    /*
     private fb: FormBuilder,
     private auth: Auth,
+    */
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    /*
     this.signUpForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
+    */
   }
 
+  /*
   register() {
     createUserWithEmailAndPassword(this.auth, this.signUpForm.value.email, this.signUpForm.value.password)
     .then((response: any) => {
@@ -40,7 +47,7 @@ export class SigninComponent implements OnInit {
       const uid = response.user.uid;
 
       this.createOnFirestore(uid);
-      this.router.navigate([['login']]);
+      this.router.navigate(['success']);
       // ...
     })
     .catch((error) => {
@@ -50,10 +57,12 @@ export class SigninComponent implements OnInit {
     });
   }
 
+
   async createOnFirestore(id: string) {
     this.user.userID = id;
     console.log(this.user.toJson());
     await setDoc(doc(this.db, "users", id), this.user.toJson());
   }
+    */
 
 }
