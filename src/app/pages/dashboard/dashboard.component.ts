@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthService } from 'src/app/shares/services/auth.service';
+import { DataService } from 'src/app/shares/services/data.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -11,12 +15,25 @@ export class DashboardComponent implements OnInit {
   currUser: any;
 
   constructor(
-    public authService: AuthService
-  ) { }
+    public _authService: AuthService,
+    private _dataService: DataService,
+    public _afAuth: AngularFireAuth,
+    private firestore: AngularFirestore
+  ) { 
+
+  }
 
   ngOnInit(): void {
-    console.log(this.authService.isLoggedIn);
+    this._afAuth.authState.subscribe((user) => {
+      if(user) {
 
+        
+      }
+    })
+
+    setTimeout(() => {
+
+    }, 3000)
 
   }
 

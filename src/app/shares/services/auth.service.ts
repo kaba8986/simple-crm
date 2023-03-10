@@ -5,11 +5,14 @@ import { Router } from '@angular/router';
 import { User } from 'src/models/user'; //Interface, not class
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+
+  userName: string = "";
   userData: any; // Save logged in user data
 
   constructor(
@@ -37,8 +40,8 @@ export class AuthService {
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.SetUserData(result.user);
+      .then((result) => { 
+        // this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if(user) {
             this.router.navigate(['dashboard']);
@@ -51,14 +54,15 @@ export class AuthService {
   }
 
   //Sign up with email / password
-  SignUp(email: string, password: string) {
+  SignUp(email: string, password: string, firstName: string, lastName: string) {
+    console.log('Signup: ', firstName + " "  + lastName);
     return this.afAuth
     .createUserWithEmailAndPassword(email, password)
     .then((result) => {
       /* Call the SendVerificationMail() function when new user sign up
       and return promise */
       this.SendVarificationMail();
-      this.SetUserData(result.user);
+      this.SetUserData(result.user, firstName, lastName);
     })
     .catch((error) => {
       window.alert(error.message);
@@ -118,12 +122,14 @@ export class AuthService {
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore and AngularFirestoreDocument service */
-  SetUserData(user: any) {
+  SetUserData(user: any, fN?: string, lN?: string) {
+    console.log('Firstore: ', fN + " " + lN);
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
+      displayName: fN + " " + lN,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     }
@@ -138,6 +144,7 @@ export class AuthService {
     .then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['login']);
+      this.userName = "";
     })
   }
 }
