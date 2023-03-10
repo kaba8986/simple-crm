@@ -2,13 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shares/services/auth.service';
 
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+  selector: 'app-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.scss']
 })
-export class ForgotPasswordComponent implements OnInit {
-
-  loading = false;
+export class ResetPasswordComponent implements OnInit {
 
   constructor(
     public authService: AuthService
@@ -16,6 +14,5 @@ export class ForgotPasswordComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 
 }

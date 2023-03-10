@@ -3,8 +3,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { throttleTime } from 'rxjs';
-import { DataService } from 'src/app/services/data.service';
-import { GetUserByIdService } from 'src/app/services/get-user-by-id.service';
+import { DataService } from 'src/app/shares/services/data.service';
+import { GetUserByIdService } from 'src/app/shares/services/get-user-by-id.service';
 
 import { Task } from 'src/models/task.class';
 

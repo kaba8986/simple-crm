@@ -32,6 +32,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { SuccessComponent } from './pages/success/success.component';
+import { CheckMailComponent } from './pages/check-mail/check-mail.component';
+import { AuthService } from './shares/services/auth.service';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,9 @@ import { SuccessComponent } from './pages/success/success.component';
     LoginComponent,
     SigninComponent,
     ForgotPasswordComponent,
-    SuccessComponent
+    SuccessComponent,
+    CheckMailComponent,
+    ResetPasswordComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -69,7 +74,7 @@ import { SuccessComponent } from './pages/success/success.component';
     ReactiveFormsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
   ],
-  providers: [{ provide: AUTH_SETTINGS, useValue: { appVerificationDisabledForTesting: true } }],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

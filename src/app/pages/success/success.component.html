@@ -1,6 +1,9 @@
 <div class="success-container">
     <h2>Success!</h2>
-    <p>Your Signin was successful. <br>
-        Please check your E-Mail for confirming your registration.</p>
-    <button  mat-button cdkFocusInitial routerLink="/login">Go to Login</button>
+    <div *ngIf="authService.userData as user">
+        <p>We've sent a confirmation email to {{user.email}} <br>
+            Please check your E-Mail and click on the link to verify.</p>
+        <p>No Email recieved? <a href="#" (click)="authService.SendVerificationMail()">Resend</a></p> 
+            <button  mat-button cdkFocusInitial routerLink="/login">Go to Login</button>
+    </div>
 </div>

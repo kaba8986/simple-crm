@@ -2,22 +2,13 @@
     padding-top: 40px;
 
     p { 
-        line-height: 30px;
+        line-height: 30px;;
     }
-
-    a {
-        color: #2A5259;
-
-        &:hover {
-            color: rgba(42, 82, 89, 0.8);
-        }
-    }
-
-
 
     button {
         background-color: #2A5259;
         color: #fff;
+        margin-top: 24px;
     
         &:hover {
             background: rgba(42, 82, 89, 0.8);
